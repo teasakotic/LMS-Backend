@@ -23,7 +23,7 @@ public class Fakultet {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(length=150, nullable = false)
+	@Column(length=128, nullable = false)
 	private String ime;
 
 	@ManyToOne(cascade=CascadeType.ALL)

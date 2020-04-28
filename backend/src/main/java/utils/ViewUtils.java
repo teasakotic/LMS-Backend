@@ -13,6 +13,12 @@ public class ViewUtils {
 	public interface ShowForumKorisnikForumUloga{};
 	public interface ShowObjava{};
 	public interface ShowTema{};
+	public interface ShowRealizacijaPredmeta{};
+	public interface ShowKategorijaUloga{};
+	public interface ShowZvanje{}; 
+	public interface ShowFajl{};
+	public interface ShowAutor{};
+	public interface ShowObjavaFajl{};
 	
 
 }

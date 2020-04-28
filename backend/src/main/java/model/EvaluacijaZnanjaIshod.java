@@ -15,7 +15,7 @@ public class EvaluacijaZnanjaIshod {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(length=150, nullable = false)
+	@Column(length=128, nullable = false)
 	private String opis;
 
 	@ManyToOne(cascade= {CascadeType.REFRESH, CascadeType.MERGE})

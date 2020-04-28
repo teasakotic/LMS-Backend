@@ -21,14 +21,14 @@ public class Disertacija {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(length=158, nullable = false)
+	@Column(length=128, nullable = false)
 	private String naslov;
 	
-	@Column(length=158, nullable = false)
+	@Column(length=128, nullable = false)
 	@Temporal(value = TemporalType.DATE)
 	private Date datumAplikacije;
 	
-	@Column(length=158, nullable = false)
+	@Column(length=128, nullable = false)
 	@Temporal(value = TemporalType.DATE)
 	private Date datumOdbrane;
 	

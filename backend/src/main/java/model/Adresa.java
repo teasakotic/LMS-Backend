@@ -15,10 +15,10 @@ public class Adresa {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(length=158, nullable = false)
+	@Column(length=128, nullable = false)
 	private String broj;
 
-	@Column(length=158, nullable = false)
+	@Column(length=128, nullable = false)
 	private String ulica;
 
 	@ManyToOne(cascade=CascadeType.ALL)

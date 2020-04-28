@@ -15,10 +15,10 @@ public class Autor {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(length=158, nullable = false)
+	@Column(length=128, nullable = false)
 	private String ime;
 	
-	@Column(length=158, nullable = false)
+	@Column(length=128, nullable = false)
 	private String prezime;
 	
 	@ManyToOne(cascade=CascadeType.ALL)

@@ -16,7 +16,7 @@ public class DatotekaZaDisertaciju {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(length=158, nullable = false)
+	@Column(length=128, nullable = false)
 	private String url;
 	
 	@OneToOne(mappedBy = "objavaFajl")
