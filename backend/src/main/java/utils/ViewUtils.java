@@ -19,6 +19,7 @@ public class ViewUtils {
 	public interface ShowFajl{};
 	public interface ShowAutor{};
 	public interface ShowObjavaFajl{};
+
 	
 
 }
