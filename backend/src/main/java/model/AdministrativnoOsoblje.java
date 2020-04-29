@@ -15,7 +15,7 @@ import org.hibernate.annotations.Where;
 
 
 @Entity
-@Where(clause = "deleted = 'false'")
+@Where(clause = "obrisan = 'false'")
 
 public class AdministrativnoOsoblje {
 	@Id
@@ -33,17 +33,17 @@ public class AdministrativnoOsoblje {
 	private LicniPodaci licniPodaci;
 	
 	@NotNull
-	private Boolean deleted = false;
+	private Boolean obrisan = false;
 
 
 	public AdministrativnoOsoblje() {}
 	
-	public AdministrativnoOsoblje(Adresa adresa, model.RegistrovaniKorisnik registrovaniKorisnik, LicniPodaci licniPodaci, Boolean deleted) {
+	public AdministrativnoOsoblje(Adresa adresa, model.RegistrovaniKorisnik registrovaniKorisnik, LicniPodaci licniPodaci, Boolean obrisan) {
 		super();
 		this.registrovaniKorisnik = registrovaniKorisnik;
 		this.adresa = adresa;
 		this.licniPodaci = licniPodaci;
-		this.deleted = deleted;
+		this.obrisan = obrisan;
 	}
 
 	public Long getId(){
@@ -78,12 +78,12 @@ public class AdministrativnoOsoblje {
 		this.licniPodaci = licniPodaci;
 	}
 
-	public Boolean getDeleted() {
-		return deleted;
+	public Boolean getObrisan() {
+		return obrisan;
 	}
 
-	public void setDeleted(Boolean deleted) {
-		this.deleted = deleted;
+	public void setObrisan(Boolean obrisan) {
+		this.obrisan = obrisan;
 	}
 	
 }

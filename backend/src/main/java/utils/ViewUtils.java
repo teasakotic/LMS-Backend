@@ -19,10 +19,14 @@ public class ViewUtils {
 	public interface ShowFajl{};
 	public interface ShowAutor{};
 	public interface ShowObjavaFajl{};
-	public interface ShowFakultet{};
-	public interface ShowTelefoniUniverziteta{};
-	public interface ShowEmailUniverziteta{};
-
+	public interface ShowPredmet{};
+	public interface ShowGodinaStudija{};
+	public interface ShowTerminNastave{};
+	public interface ShowNastavniMaterijal{};
+	public interface ShowNastavnikNaRealizaciji{};
+	public interface ShowStudentNaGodini{};
+	public interface ShowIzborniPredmet{};
+	public interface ShowPohadjanjePredmeta{};
 	
 
 }

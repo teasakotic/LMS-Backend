@@ -16,7 +16,7 @@ import org.hibernate.annotations.Where;
 
 
 @Entity
-@Where(clause = "deleted = 'false'")
+@Where(clause = "obrisan = 'false'")
 public class Ishod {
 
 	@Id
@@ -36,17 +36,17 @@ public class Ishod {
 	private Predmet predmet;
 	
 	@NotNull
-	private Boolean deleted = false;
+	private Boolean obrisan = false;
 
 	public Ishod() {}
 
-	public Ishod(String opis, Integer nedelja, String putanjaDoIkonice, Predmet predmet, Boolean deleted) {
+	public Ishod(String opis, Integer nedelja, String putanjaDoIkonice, Predmet predmet, Boolean obrisan) {
 		super();
 		this.opis = opis; 
 		this.nedelja = nedelja; 
 		this.putanjaDoIkonice = putanjaDoIkonice; 
 		this.predmet = predmet; 
-		this.deleted = deleted;
+		this.obrisan = obrisan;
 	}
 
 	public Long getId(){
@@ -89,12 +89,12 @@ public class Ishod {
 		this.putanjaDoIkonice = putanjaDoIkonice;
 	}
 
-	public Boolean getDeleted() {
-		return deleted;
+	public Boolean getObrisan() {
+		return obrisan;
 	}
 
-	public void setDeleted(Boolean deleted) {
-		this.deleted = deleted;
+	public void setObrisan(Boolean obrisan) {
+		this.obrisan = obrisan;
 	}
 	
 }

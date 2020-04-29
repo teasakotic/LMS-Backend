@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import utils.ViewUtils.ShowZvanje;
 
 @Entity
-@Where(clause = "deleted = 'false'")
+@Where(clause = "obrisan = 'false'")
 public class Nastavnik {
 
 	@Id
@@ -43,19 +43,19 @@ public class Nastavnik {
 	private LicniPodaci licniPodaci;
 	
 	@NotNull
-	private Boolean deleted = false;
+	private Boolean obrisan = false;
 
 	public Nastavnik() {}
 
 	public Nastavnik(String biografija, Set<Zvanje> zvanje, Adresa adresa, RegistrovaniKorisnik registrovaniKorisnik,
-			LicniPodaci licniPodaci, Boolean deleted) {
+			LicniPodaci licniPodaci, Boolean obrisan) {
 		super();
 		this.biografija = biografija; 
 		this.zvanje = zvanje; 
 		this.adresa = adresa; 
 		this.registrovaniKorisnik = registrovaniKorisnik;
 		this.licniPodaci = licniPodaci; 
-		this.deleted = deleted;
+		this.obrisan = obrisan;
 	}
 
 	public Long getId(){
@@ -106,12 +106,12 @@ public class Nastavnik {
 		this.licniPodaci = licniPodaci;
 	}
 
-	public Boolean getDeleted() {
-		return deleted;
+	public Boolean getObrisan() {
+		return obrisan;
 	}
 
-	public void setDeleted(Boolean deleted) {
-		this.deleted = deleted;
+	public void setObrisan(Boolean obrisan) {
+		this.obrisan = obrisan;
 	}
 	
 }

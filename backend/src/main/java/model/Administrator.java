@@ -15,11 +15,11 @@ import org.hibernate.annotations.Where;
 
 
 @Entity
-@Where(clause = "deleted = 'false'")
+@Where(clause = "obrisan = 'false'")
 public class Administrator {
 
 	@NotNull
-	private Boolean deleted = false;
+	private Boolean obrisan = false;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -34,11 +34,11 @@ public class Administrator {
 
 	public Administrator() {}
 	
-	public Administrator(LicniPodaci licniPodaci, RegistrovaniKorisnik registrovaniKorisnik, Boolean deleted) {
+	public Administrator(LicniPodaci licniPodaci, RegistrovaniKorisnik registrovaniKorisnik, Boolean obrisan) {
 		super();
 		this.licniPodaci = licniPodaci;
 		this.registrovaniKorisnik = registrovaniKorisnik;
-		this.deleted = deleted;
+		this.obrisan = obrisan;
 	}
 
 	public LicniPodaci getLicniPodaci() {
@@ -65,12 +65,12 @@ public class Administrator {
 		this.registrovaniKorisnik = registrovaniKorisnik;
 	}
 
-	public Boolean getDeleted() {
-		return deleted;
+	public Boolean getObrisan() {
+		return obrisan;
 	}
 
-	public void setDeleted(Boolean deleted) {
-		this.deleted = deleted;
+	public void setObrisan(Boolean obrisan) {
+		this.obrisan = obrisan;
 	}
 	
 	
