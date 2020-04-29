@@ -19,6 +19,9 @@ public class ViewUtils {
 	public interface ShowFajl{};
 	public interface ShowAutor{};
 	public interface ShowObjavaFajl{};
+	public interface ShowFakultet{};
+	public interface ShowTelefoniUniverziteta{};
+	public interface ShowEmailUniverziteta{};
 
 	
 
