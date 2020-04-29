@@ -21,7 +21,7 @@ public class ViewUtils {
 	public interface ShowObjavaFajl{};
 	public interface ShowPredmet{};
 	public interface ShowGodinaStudija{};
-	public interface ShowTerminNastave{};
+	public interface ShowTerminNastave{}; 
 	public interface ShowNastavniMaterijal{};
 	public interface ShowNastavnikNaRealizaciji{};
 	public interface ShowStudentNaGodini{};
