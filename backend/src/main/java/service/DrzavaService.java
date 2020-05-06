@@ -32,4 +32,12 @@ public class DrzavaService {
 			drzavaRepo.delete(drz.get());
 		}
 	}
+	public void updateDrzava(Long id, Drzava drzava) {
+		Optional<Drzava> drz = drzavaRepo.findById(id);
+		if(drz.isPresent()) {
+			drzava.setId(drz.get().getId());
+			drzavaRepo.save(drzava);
+		}
+	}
+
 }
