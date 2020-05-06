@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import model.ObjavaFajl;
-import repository.ObjavaFajlRepository;;
+import repository.ObjavaFajlRepository;
 
 @Service
 public class ObjavaFajlService {
