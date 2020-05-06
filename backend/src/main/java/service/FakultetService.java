@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import model.Fakultet;
 import repository.FakultetRepository;
 
@@ -32,4 +33,12 @@ public class FakultetService {
 			fakultetRepo.delete(faks.get());
 		}
 	}
+	public void updateFakultet(Long id, Fakultet fakultet) {
+		Optional<Fakultet> faks = fakultetRepo.findById(id);
+		if(faks.isPresent()) {
+			fakultet.setId(faks.get().getId());
+			fakultetRepo.save(fakultet);
+		}
+	}
+
 }
