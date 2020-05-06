@@ -31,4 +31,13 @@ public class UlogaService {
 			ulogaRepo.delete(ulg.get());
 		}
 	}
+	public void updateUloga(Long id, Uloga uloga) {
+		Optional<Uloga> ulg = ulogaRepo.findById(id);
+		if(ulg.isPresent()) {
+			uloga.setId(ulg.get().getId());
+			ulogaRepo.save(uloga);
+		}
+	}
+
 }
+
