@@ -106,7 +106,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<fork>true</fork>
-					<mainClass>rs.ac.singidunum.backend.App</mainClass>
+					<mainClass>rs.ac.singidunum.backend.app</mainClass>
 				</configuration>
 				<executions>
 					<execution>
@@ -122,7 +122,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>rs.ac.singidunum.backend.App</mainClass>
+							<mainClass>rs.ac.singidunum.backend.app</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
