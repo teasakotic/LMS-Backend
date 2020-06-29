@@ -27,7 +27,7 @@ public class AdministratorService {
     public AdministratorService() {
     }
 
-    public Iterable<Administrator> getAdministrators() {
+    public Iterable<Administrator> getAdministrator() {
         return administratorRepo.findAll();
     }
 

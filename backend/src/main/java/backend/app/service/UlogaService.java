@@ -18,7 +18,7 @@ public class UlogaService {
 		return ulogaRepo.findAll();
 	}
 	
-	public Optional<Uloga> getOne(Long id) {
+	public Optional<Uloga> getUlogaById(Long id) {
 		return ulogaRepo.findById(id);
 	}
 	

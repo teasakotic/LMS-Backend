@@ -18,7 +18,7 @@ public class ForumKorisnikService {
 		return forumKorisnikRepo.findAll();
 	}
 	
-	public Optional<ForumKorisnik> getOne(Long id) {
+	public Optional<ForumKorisnik> getForumKorisnikById(Long id) {
 		return forumKorisnikRepo.findById(id);
 	}
 	

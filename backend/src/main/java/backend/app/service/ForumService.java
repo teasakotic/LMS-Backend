@@ -18,7 +18,7 @@ public class ForumService {
 		return forumRepo.findAll();
 	}
 	
-	public Optional<Forum> getOne(Long id) {
+	public Optional<Forum> getForumById(Long id) {
 		return forumRepo.findById(id);
 	}
 	

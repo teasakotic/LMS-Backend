@@ -18,7 +18,7 @@ public class EvaluacijaZnanjaIshodService {
 		return evaluacijaZnanjaIshodRepo.findAll();
 	}
 	
-	public Optional<EvaluacijaZnanjaIshod> getOne(Long id) {
+	public Optional<EvaluacijaZnanjaIshod> getEvaluacijaZnanjaIshodById(Long id) {
 		return evaluacijaZnanjaIshodRepo.findById(id);
 	}
 	

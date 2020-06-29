@@ -67,7 +67,7 @@ public class EvaluacijaZnanjaService {
 		return tipEvaluacijeRepo.findAll();
 	}
 
-	public ArrayList<EvaluacijaZnanjaDTO> getTipEvaluacijeByStudent(Long studentId) {
+	public ArrayList<EvaluacijaZnanjaDTO> getEvaluacijaZnanjaByStudent(Long studentId) {
 	
 		ArrayList<Object[]> fetched = evaluacijaZnanjaRepo.getEvaluacijaZnanjaByStudent(studentId);
 		ArrayList<EvaluacijaZnanjaDTO> results = new ArrayList<EvaluacijaZnanjaDTO>();

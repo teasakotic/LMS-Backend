@@ -18,7 +18,7 @@ public class KategorijaUlogaService {
 		return kategorijaUlogaRepo.findAll();
 	}
 	
-	public Optional<KategorijaUloga> getOne(Long id) {
+	public Optional<KategorijaUloga> getKategorijaUlogaById(Long id) {
 		return kategorijaUlogaRepo.findById(id);
 	}
 	

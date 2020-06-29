@@ -18,7 +18,7 @@ public class ForumKorisnikForumUlogaService {
 		return forumKorisnikForumUlogaRepo.findAll();
 	}
 	
-	public Optional<ForumKorisnikForumUloga> getOne(Long id) {
+	public Optional<ForumKorisnikForumUloga> getForumKorisnikForumUlogaById(Long id) {
 		return forumKorisnikForumUlogaRepo.findById(id);
 	}
 	

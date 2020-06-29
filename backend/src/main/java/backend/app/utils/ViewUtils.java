@@ -1,7 +1,7 @@
 package backend.app.utils;
 
 public class ViewUtils {
-	
+	public interface HideOptionalProperties {};
 	public interface ShowMesto{};
 	public interface ShowKorisnickaDozvola{};
 	public interface ShowPolaganje{};
@@ -27,6 +27,6 @@ public class ViewUtils {
 	public interface ShowStudentNaGodini{};
 	public interface ShowIzborniPredmet{};
 	public interface ShowPohadjanjePredmeta{};
-	
+	public interface ShowDisertacija{};
 
 }

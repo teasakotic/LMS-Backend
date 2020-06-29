@@ -14,11 +14,11 @@ public class MestoService {
 	@Autowired
 	MestoRepository mestoRepo;
 	
-	public Iterable<Mesto> getAdresa() {
+	public Iterable<Mesto> getMesto() {
 		return mestoRepo.findAll();
 	}
 	
-	public Optional<Mesto> getOne(Long id) {
+	public Optional<Mesto> getMestoById(Long id) {
 		return mestoRepo.findById(id);
 	}
 	

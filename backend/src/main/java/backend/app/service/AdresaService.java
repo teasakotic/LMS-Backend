@@ -18,7 +18,7 @@ public class AdresaService {
 		return adresaRepo.findAll();
 	}
 	
-	public Optional<Adresa> getOne(Long id) {
+	public Optional<Adresa> getAdresaById(Long id) {
 		return adresaRepo.findById(id);
 	}
 	

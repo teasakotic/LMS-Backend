@@ -18,7 +18,7 @@ public class DrzavaService {
 		return drzavaRepo.findAll();
 	}
 	
-	public Optional<Drzava> getOne(Long id) {
+	public Optional<Drzava> getDrzavaById(Long id) {
 		return drzavaRepo.findById(id);
 	}
 	
