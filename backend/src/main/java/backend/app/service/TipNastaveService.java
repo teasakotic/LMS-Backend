@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import backend.app.model.ObjavaFajl;
+
 import backend.app.model.TipNastave;
 import backend.app.repository.TipNastaveRepository;
 
