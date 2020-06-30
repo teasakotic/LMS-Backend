@@ -25,8 +25,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import backend.app.model.Nastavnik;
 import backend.app.model.RealizacijaPredmeta;
-import backend.app.service.FajlService;
+import backend.app.service.FileService;
 import backend.app.service.NastavnikService;
+import backend.app.utils.GeneratePDF;
 import backend.app.utils.ViewUtils.HideOptionalProperties;
 
 
@@ -39,7 +40,7 @@ public class NastavnikController {
     NastavnikService nastavnikService;
 
     @Autowired
-    FajlService fajlService;
+    FileService fileService;
     
     @JsonView(HideOptionalProperties.class)
     @RequestMapping()
@@ -51,7 +52,7 @@ public class NastavnikController {
             produces = MediaType.APPLICATION_PDF_VALUE)
     public ResponseEntity<InputStreamResource> exportStudentsToPDF() {
 
-        ByteArrayInputStream bis = GeneratePDF.teachers((List<Nastavnik>)nastavnikService.getNastavnik());
+        ByteArrayInputStream bis = GeneratePDF.nastavnik((List<Nastavnik>)nastavnikService.getNastavnik());
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Disposition", "inline; filename=nastavnik.pdf");
@@ -93,7 +94,7 @@ public class NastavnikController {
     public ResponseEntity<Nastavnik> updateNastavnik(@PathVariable String username, @RequestPart("profileImage") Optional<MultipartFile> file, @RequestPart("data") String nastavnikStr) throws IOException {
     	Nastavnik nastavnik = new ObjectMapper().readValue(nastavnikStr, Nastavnik.class);
 		if(file.isPresent()) {
-			fajlService.saveProfileImage(file.get(), "nastavnik_" + nastavnik.getRegistrovaniKorisnik().getUsername(), nastavnik.getLicniPodaci());
+			fileService.saveProfileImage(file.get(), "nastavnik_" + nastavnik.getRegistrovaniKorisnik().getUsername(), nastavnik.getLicniPodaci());
 		}
 		nastavnikService.updateNastavnik(username, nastavnik);
         return new ResponseEntity<Nastavnik>(nastavnik, HttpStatus.OK);
@@ -133,7 +134,7 @@ public class NastavnikController {
 	public ResponseEntity<Nastavnik> addNastavnik(@RequestPart("profileImage") Optional<MultipartFile> file, @RequestPart("data") String nastavnikStr) throws IOException {
     	Nastavnik nastavnik = new ObjectMapper().readValue(nastavnikStr, Nastavnik.class);
 		if(file.isPresent()) {
-			fajlService.saveProfileImage(file.get(), "nastavnik_" + nastavnik.getRegistrovaniKorisnik().getUsername(), nastavnik.getLicniPodaci());
+			fileService.saveProfileImage(file.get(), "nastavnik_" + nastavnik.getRegistrovaniKorisnik().getUsername(), nastavnik.getLicniPodaci());
 		}
 		nastavnikService.addNastavnik(nastavnik);
 		return new ResponseEntity<Nastavnik>(nastavnik, HttpStatus.CREATED);

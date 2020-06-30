@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import backend.app.model.Mesto;
 import backend.app.model.TerminNastave;
 
 import backend.app.repository.TerminNastaveRepository;
@@ -29,7 +30,10 @@ public class TerminNastaveService {
     public Optional<TerminNastave> getTerminNastaveById(Long id) {
         return terminNastaveRepo.findById(id);
     }
-
+	public void addTerminNastave(TerminNastave terminNastave) {
+		terminNastaveRepo.save(terminNastave);
+	}
+	
     public void removeTerminNastave(Long id) {
         Optional<TerminNastave> terminNastave = terminNastaveRepo.findById(id);
         TerminNastave t = terminNastave.get();
@@ -37,7 +41,14 @@ public class TerminNastaveService {
         terminNastaveRepo.save(t);
     }
 
-    
+	public void updateTerminNastave(Long id, TerminNastave terminNastave) {
+		Optional<TerminNastave> terminNastavee = terminNastaveRepo.findById(id);
+		if(terminNastavee.isPresent()) {
+			terminNastave.setId(terminNastavee.get().getId());
+			terminNastaveRepo.save(terminNastave);
+		}
+	}
+
     
 
 }

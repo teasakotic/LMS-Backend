@@ -19,7 +19,7 @@ public class TipNastaveService {
 		return tipNastaveRepo.findAll();
 	}
 	
-	public Optional<TipNastave> getOne(Long id) {
+	public Optional<TipNastave> getTipNastaveById(Long id) {
 		return tipNastaveRepo.findById(id);
 	}
 	

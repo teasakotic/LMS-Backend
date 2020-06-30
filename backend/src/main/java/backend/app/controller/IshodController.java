@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import backend.app.model.Ishod;
-import backend.app.service.FajlService;
+import backend.app.service.FileService;
 import backend.app.service.IshodService;
 import backend.app.utils.ViewUtils.HideOptionalProperties;
 
@@ -34,7 +34,7 @@ public class IshodController {
     @Autowired
     IshodService ishodService;
     @Autowired
-    FajlService fajlService;
+    FileService fajlService;
 
     @JsonView(HideOptionalProperties.class)
     @RequestMapping()
@@ -59,8 +59,8 @@ public class IshodController {
     }
 
     @RequestMapping(value="", method=RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<Ishod> addIshod(@RequestPart("icon") Optional<MultipartFile> file, @RequestPart("data") String topicStr) throws IOException {
-    	Ishod ishod = new ObjectMapper().readValue(topicStr, Ishod.class);
+    public ResponseEntity<Ishod> addIshod(@RequestPart("icon") Optional<MultipartFile> file, @RequestPart("data") String ishodStr) throws IOException {
+    	Ishod ishod = new ObjectMapper().readValue(ishodStr, Ishod.class);
     	Ishod savedIshod = ishodService.addIshod(ishod);
     	if(file.isPresent()) {
     		fajlService.saveIshodIcon(file.get(), "Ishod_" + savedIshod.getId(), savedIshod);

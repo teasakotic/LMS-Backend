@@ -18,7 +18,7 @@ public class TemaService {
 		return temaRepo.findAll();
 	}
 	
-	public Optional<Tema> getOne(Long id) {
+	public Optional<Tema> getTemaById(Long id) {
 		return temaRepo.findById(id);
 	}
 	

@@ -36,7 +36,7 @@ public class NastavniMaterijal {
 	
 	@JsonView(ShowFajl.class)
 	@OneToMany(mappedBy="nastavniMaterijal")
-	private Set<Fajl> fajl;
+	private Set<File> file;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
 	private RealizacijaPredmeta realizacijaPredmeta;
@@ -45,13 +45,13 @@ public class NastavniMaterijal {
 		super();
 	}
 
-	public NastavniMaterijal(String naziv, Set<Autor> autor, Date godinaIzdavanja, Set<Fajl> fajl,
+	public NastavniMaterijal(String naziv, Set<Autor> autor, Date godinaIzdavanja, Set<File> file,
 			RealizacijaPredmeta realizacijaPredmeta) {
 		super();
 		this.naziv = naziv;
 		this.autor = autor;
 		this.godinaIzdavanja = godinaIzdavanja;
-		this.fajl = fajl;
+		this.file= file;
 		this.realizacijaPredmeta = realizacijaPredmeta;
 	}
 
@@ -87,12 +87,12 @@ public class NastavniMaterijal {
 		this.godinaIzdavanja = godinaIzdavanja;
 	}
 
-	public Set<Fajl> getFajl() {
-		return fajl;
+	public Set<File> getFile() {
+		return file;
 	}
 
-	public void setFajl(Set<Fajl> fajl) {
-		this.fajl = fajl;
+	public void setFile(Set<File> file) {
+		this.file = file;
 	}
 
 	public RealizacijaPredmeta getRealizacijaPredmeta() {

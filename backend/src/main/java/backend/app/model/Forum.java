@@ -45,7 +45,7 @@ public class Forum {
 		this.id = id;
 	}
 	
-	public Set<ForumKorisnik> getKorisnik(){
+	public Set<ForumKorisnik> getForumKorisnik(){
 		return korisnik;
 	}
 
@@ -53,11 +53,11 @@ public class Forum {
 		this.korisnik = korisnik;
 	}
 	
-	public Set<Kategorija> getKategorije(){
+	public Set<Kategorija> getKategorija(){
 		return kategorije;
 	}
 
-	public void setKategorije(Set<Kategorija> kategorije){
+	public void setKategorija(Set<Kategorija> kategorije){
 		this.kategorije = kategorije;
 	}
 	

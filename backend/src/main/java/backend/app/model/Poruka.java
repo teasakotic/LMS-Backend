@@ -33,13 +33,13 @@ public class Poruka {
 	
 	@JsonView(ShowIshod.class)
 	@OneToMany(mappedBy="poruka")
-	private Set<Fajl> prilog;
+	private Set<File> prilog;
 
 	public Poruka() {
 		super();
 	}
 
-	public Poruka(String sadrzaj, Date datumPostavljanja, String primalac, String posiljalac, Set<Fajl> prilog) {
+	public Poruka(String sadrzaj, Date datumPostavljanja, String primalac, String posiljalac, Set<File> prilog) {
 		super();
 		this.sadrzaj = sadrzaj;
 		this.datumPostavljanja = datumPostavljanja;
@@ -88,11 +88,11 @@ public class Poruka {
 		this.posiljalac = posiljalac;
 	}
 
-	public Set<Fajl> getPrilog() {
+	public Set<File> getPrilog() {
 		return prilog;
 	}
 
-	public void setPrilog(Set<Fajl> prilog) {
+	public void setPrilog(Set<File> prilog) {
 		this.prilog = prilog;
 	}
 

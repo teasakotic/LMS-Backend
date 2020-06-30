@@ -55,7 +55,7 @@ public class Predmet {
 
 	@JsonView(ShowIshod.class)
 	@OneToMany(mappedBy="predmet")
-	private Set<Ishod> syllabus;
+	private Set<Ishod> silabus;
 	
 	@ManyToMany
     private Set<Predmet> preduslov;
@@ -74,7 +74,7 @@ public class Predmet {
 	public Predmet() {}
 
 	public Predmet(String naziv, Integer espb, Boolean obavezan, Integer brojPredavanja, Integer brojVezbi,
-			Integer drugiObliciNastave, Integer istrazivackiRad, Integer ostaliCasovi, Set<Ishod> syllabus,
+			Integer drugiObliciNastave, Integer istrazivackiRad, Integer ostaliCasovi, Set<Ishod> silabus,
 			Set<Predmet> preduslov, Set<Predmet> preduslovZa, GodinaStudija godinaStudija,
 			Boolean obrisan) {
 		super();
@@ -86,7 +86,7 @@ public class Predmet {
 		this.drugiObliciNastave = drugiObliciNastave;
 		this.istrazivackiRad = istrazivackiRad;
 		this.ostaliCasovi = ostaliCasovi;
-		this.syllabus = syllabus;
+		this.silabus = silabus;
 		this.preduslov = preduslov;
 		this.preduslovZa = preduslovZa;
 		this.godinaStudija = godinaStudija;
@@ -145,7 +145,7 @@ public class Predmet {
 		return drugiObliciNastave;
 	}
 
-	public void setOtherActivitiesNum(Integer drugiObliciNastave) {
+	public void setDrugiObliciNastave(Integer drugiObliciNastave) {
 		this.drugiObliciNastave = drugiObliciNastave;
 	}
 
@@ -165,12 +165,12 @@ public class Predmet {
 		this.ostaliCasovi = ostaliCasovi;
 	}
 	
-	public Set<Ishod> getSyllabus(){
-		return syllabus;
+	public Set<Ishod> getSilabus(){
+		return silabus;
 	}
 
-	public void setSyllabus(Set<Ishod> syllabus){
-		this.syllabus = syllabus;
+	public void setSilabus(Set<Ishod> silabus){
+		this.silabus = silabus;
 	}
 
 	public Set<Predmet> getPreduslov() {

@@ -99,7 +99,7 @@ public class RealizacijaPredmeta {
 		return predmet;
 	}
 
-	public void setSubject(Predmet predmet){
+	public void setPredmet(Predmet predmet){
 		this.predmet = predmet;
 	}
 	

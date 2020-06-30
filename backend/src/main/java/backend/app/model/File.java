@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Fajl {
+public class File {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -27,11 +27,11 @@ public class Fajl {
 	@ManyToOne(cascade=CascadeType.ALL)
 	private NastavniMaterijal nastavniMaterijal;
 
-	public Fajl() {
+	public File() {
 		super();
 	}
 
-	public Fajl(String opis, String url, Poruka poruka, NastavniMaterijal nastavniMaterijal) {
+	public File(String opis, String url, Poruka poruka, NastavniMaterijal nastavniMaterijal) {
 		super();
 		this.opis = opis;
 		this.url = url;

@@ -57,7 +57,7 @@ public class GodinaStudijaService {
     	Optional<GodinaStudija> gs = godinaStudijaService.getGodinaStudijaById(id);
     	if(gs.isPresent()) {
     		GodinaStudija godinaStudija = gs.get();
-    		int godina = godinaStudija.getYear();
+    		int godina = godinaStudija.getGodina();
     		godina = godina+1;
     		Optional<GodinaStudija> narednaGodinaStudija = godinaStudijaRepo.getNarednaGodinaStudija(godina, godinaStudija.getStudijskiProgram().getId());
     		return narednaGodinaStudija;

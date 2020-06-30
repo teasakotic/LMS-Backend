@@ -107,7 +107,7 @@ public class Univerzitet {
 		this.adresa = adresa;
 	}
 	
-	public Nastavnik getNastavnik(){
+	public Nastavnik getRektor(){
 		return rektor;
 	}
 

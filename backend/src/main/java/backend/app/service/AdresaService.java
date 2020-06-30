@@ -27,9 +27,9 @@ public class AdresaService {
 	}
 	
 	public void removeAdresa(Long id) {
-		Optional<Adresa> adresss= adresaRepo.findById(id);
-		if(adresss.isPresent()) {
-			adresaRepo.delete(adresss.get());
+		Optional<Adresa> adresa= adresaRepo.findById(id);
+		if(adresa.isPresent()) {
+			adresaRepo.delete(adresa.get());
 		}
 	}
 	

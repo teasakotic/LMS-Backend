@@ -94,7 +94,7 @@ public class Student {
 		return izborniPredmet;
 	}
 
-	public void setElectiveSubjectAttendances(Set<IzborniPredmet> izborniPredmet) {
+	public void setIzborniPredmet(Set<IzborniPredmet> izborniPredmet) {
 		this.izborniPredmet = izborniPredmet;
 	}
 
@@ -118,7 +118,7 @@ public class Student {
 		return registrovaniKorisnik;
 	}
 
-	public void setAccountData(RegistrovaniKorisnik registrovaniKorisnik){
+	public void setRegistrovaniKorisnik(RegistrovaniKorisnik registrovaniKorisnik){
 		this.registrovaniKorisnik = registrovaniKorisnik;
 	}
 	
@@ -126,7 +126,7 @@ public class Student {
 		return licniPodaci;
 	}
 
-	public void setPersonalData(LicniPodaci licniPodaci){
+	public void setLicniPodaci(LicniPodaci licniPodaci){
 		this.licniPodaci = licniPodaci;
 	}
 

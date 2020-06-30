@@ -17,6 +17,6 @@ public interface NastavnikNaRealizacijiRepository extends JpaRepository<Nastavni
 	@Query("SELECT tr.nastavnik FROM NastavnikNaRealizaciji tr WHERE tr.realizacijaPredmeta.predmet.id = ?1")
 	Iterable<Nastavnik> findNastavniciKojiDrzePredmete(Long predmetId);
 	@Query("SELECT tr FROM NastavnikNaRealizaciji tr WHERE tr.realizacijaPredmeta.godinaStudija.id = ?1")
-	Iterable<Optional<NastavnikNaRealizaciji>> getByGodinaStudija(Long yearGodinaStudijaId);
+	Iterable<Optional<NastavnikNaRealizaciji>> getByGodinaStudija(Long godinaStudijaId);
 	
 	}

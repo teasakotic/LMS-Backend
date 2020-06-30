@@ -1,5 +1,5 @@
 package backend.app.service;
 
-public class FajlService {
+public class FileService {
 
 }

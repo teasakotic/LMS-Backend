@@ -52,7 +52,7 @@ public class Dozvola {
 		this.naziv = naziv;
 	}
 
-	public Set<KorisnickaDozvola> getKorisnici() {
+	public Set<KorisnickaDozvola> getKorisnickaDozvola() {
 		return korisnickaDozvola;
 	}
 

@@ -12,7 +12,7 @@ import backend.app.model.Student;
 @Repository
 public interface AdministrativnoOsobljeRepository extends JpaRepository<AdministrativnoOsoblje, Long> {
 
-	@Query("SELECT DISTINCT s, sy.godinStudija.year FROM Student s JOIN s.studentNaGodini sy JOIN s.pohadjanjePredmeta sa JOIN sa.realizacijaPredmeta sr WHERE sy.godinaStudija.id=?1 AND sa.konacnaOcena IS NOT NULL GROUP BY s.id HAVING (SUM(sr.predmet.ects))>=(48*(sy.godinaStudija.year))")
+	@Query("SELECT DISTINCT s, sy.godinStudija.year FROM Student s JOIN s.studentNaGodini sy JOIN s.pohadjanjePredmeta sa JOIN sa.realizacijaPredmeta sr WHERE sy.godinaStudija.id=?1 AND sa.konacnaOcena IS NOT NULL GROUP BY s.id HAVING (SUM(sr.predmet.ects))>=(48*(sy.godinaStudija.godina))")
 	Iterable<Student> findStudentiZaUpisUNarednuGodinu(Long godinaStudijaId);
 	@Query("SELECT a FROM AdministrativnoOsoblje a WHERE a.RegistrovaniKorisnik.username = ?1")
 	Optional<AdministrativnoOsoblje> getByUsername(String username);

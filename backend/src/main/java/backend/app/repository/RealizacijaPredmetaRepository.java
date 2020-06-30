@@ -10,9 +10,9 @@ import backend.app.model.RealizacijaPredmeta;
 @Repository
 public interface RealizacijaPredmetaRepository extends JpaRepository<RealizacijaPredmeta, Long> {
 	
-	@Query("SELECT tr.nastavnik FROM NastavnikNaRealizaciji tr WHERE tr.tipNatave.name='Vezbe' AND tr.realizacijaPredmeta.predmet.id = ?1")
+	@Query("SELECT tr.nastavnik FROM NastavnikNaRealizaciji tr WHERE tr.tipNastave.naziv='Vezbe' AND tr.realizacijaPredmeta.predmet.id = ?1")
 	Iterable<Nastavnik> findNastavnikeKojiDrzeVezbe(Long predmetId);
-	@Query("SELECT sr FROM RealizacijaPredmeta sr JOIN sr.nastavnikNaRealizaciji tr WHERE tr.nastavnik.LicniPodacni.username= ?1")
+	@Query("SELECT sr FROM RealizacijaPredmeta sr JOIN sr.nastavnikNaRealizaciji tr WHERE tr.nastavnik.LicniPodaci.username= ?1")
 	Iterable<RealizacijaPredmeta> findByNastavnikUsername(String username);
 	Iterable<RealizacijaPredmeta> findByGodinaStudijaId(Long id);
 }

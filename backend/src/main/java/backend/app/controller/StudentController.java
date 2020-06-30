@@ -1,6 +1,5 @@
 package backend.app.controller;
 
-import java.awt.PageAttributes.MediaType;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.Collection;
@@ -11,7 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +29,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import backend.app.mapper.StudentDetaljiMapper;
 import backend.app.mapper.StudentMapper;
 import backend.app.model.Student;
-import backend.app.service.FajlService;
+import backend.app.service.FileService;
 import backend.app.service.StudentService;
 import backend.app.utils.GeneratePDF;
 import backend.app.utils.ViewUtils.HideOptionalProperties;
@@ -43,7 +45,7 @@ public class StudentController {
     StudentService studentService;
     
     @Autowired
-    FajlService fajlService;
+    FileService fileService;
     
     @Autowired
     StudentMapper studentMapper;
@@ -97,7 +99,7 @@ public class StudentController {
     public ResponseEntity<Student> updateStudent(@PathVariable String username, @RequestPart("profileImage") Optional<MultipartFile> file, @RequestPart("data") String studentStr) throws IOException {
     	Student student = new ObjectMapper().readValue(studentStr, Student.class);
     	if(file.isPresent()) {
-			fileService.saveProfileImage(file.get(), "student_" + student.getAccountData().getUsername(), student.getPersonalData());
+			fileService.saveProfileImage(file.get(), "student_" + student.getRegistrovaniKorisnik().getUsername(), student.getLicniPodaci());
 		}
     	studentService.updateStudent(username, student);
         return new ResponseEntity<Student>(student, HttpStatus.OK);
@@ -132,11 +134,11 @@ public class StudentController {
     
     @JsonView(HideOptionalProperties.class)
 	@RequestMapping(value = "/register", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    @PreAuthorize("hasAnyRole('ROLE_ADMINISTRATIVE_STAFF','ROLE_ADMINISTRATOR')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMINISTRATIVNO_OSOBLJE','ROLE_ADMINISTRATOR')")
 	public ResponseEntity<Student> addStudent(@RequestPart("profileImage") Optional<MultipartFile> file, @RequestPart("data") String studentStr) throws IOException {
 		Student student = new ObjectMapper().readValue(studentStr, Student.class);
 		if(file.isPresent()) {
-			fajlService.saveProfileImage(file.get(), "student_" + student.getRegistrovaniKorisnik().getUsername(), student.getLicniPodaci());
+			fileService.saveProfileImage(file.get(), "student_" + student.getRegistrovaniKorisnik().getUsername(), student.getLicniPodaci());
 		}
 		studentService.addStudent(student);
 		return new ResponseEntity<Student>(student, HttpStatus.CREATED);
