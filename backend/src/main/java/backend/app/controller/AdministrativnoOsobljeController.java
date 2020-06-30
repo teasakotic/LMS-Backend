@@ -90,7 +90,7 @@ public class AdministrativnoOsobljeController {
 	@Secured("ROLE_ADMINISTRATOR")
 	public ResponseEntity<AdministrativnoOsoblje> addAAdministrativnoOsoblje(@RequestPart("profileImage") Optional<MultipartFile> file, @RequestPart("data") String admStfStr) throws IOException {
     	AdministrativnoOsoblje admStf = new ObjectMapper().readValue(admStfStr, AdministrativnoOsoblje.class);
-		if(fajl.isPresent()) {
+		if(file.isPresent()) {
 			fajlService.saveProfileImage(file.get(), "administrativno_osoblje_" + admStf.getRegistrovaniKorisnik().getUsername(), admStf.getLicniPodaci());
 		}
 		administrativnoOsobljeService.addAdministrativnoOsoblje(admStf);
