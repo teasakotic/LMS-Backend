@@ -26,7 +26,7 @@ public class GodinaStudija {
 	private Long id;
 
 	@Column(nullable = false)
-	private int year;
+	private int godina;
 	
 	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
@@ -45,8 +45,8 @@ public class GodinaStudija {
 
 	public GodinaStudija() {}
 
-	public GodinaStudija(int year, Date datumPocetka, Date datumKraja, Set<RealizacijaPredmeta> realizacijaPredmeta, StudijskiProgram studijskiProgram) {
-		this.year = year;
+	public GodinaStudija(int godina, Date datumPocetka, Date datumKraja, Set<RealizacijaPredmeta> realizacijaPredmeta, StudijskiProgram studijskiProgram) {
+		this.godina = godina;
 		this.datumPocetka = datumPocetka; 
 		this.datumKraja = datumKraja; 
 		this.realizacijaPredmeta = realizacijaPredmeta; 
@@ -61,12 +61,12 @@ public class GodinaStudija {
 		this.id = id;
 	}
 		
-	public int getYear() {
-		return year;
+	public int getGodina() {
+		return godina;
 	}
 
-	public void setYear(int year) {
-		this.year = year;
+	public void setGodina(int godina) {
+		this.godina = godina;
 	}
 
 	public Date getDatumPocetka() {

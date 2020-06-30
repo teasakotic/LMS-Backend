@@ -12,6 +12,6 @@ import backend.app.model.GodinaStudija;
 @Repository
 public interface GodinaStudijaRepository extends JpaRepository<GodinaStudija, Long> {
 	ArrayList<GodinaStudija> findByStudijskiProgramIdEquals(Long studijskiProgramId);
-	@Query("SELECT y from GodinaStudija y WHERE y.year=?1 AND y.studijskiProgram.id=?2")
-	Optional<GodinaStudija> getNarednaGodinaStudija(int year, Long id);
+	@Query("SELECT y from GodinaStudija y WHERE y.godina=?1 AND y.studijskiProgram.id=?2")
+	Optional<GodinaStudija> getNarednaGodinaStudija(int godina, Long id);
 }

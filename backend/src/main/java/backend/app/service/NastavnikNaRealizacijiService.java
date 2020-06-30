@@ -5,10 +5,10 @@ import org.springframework.stereotype.Service;
 
 import backend.app.model.Nastavnik;
 import backend.app.model.NastavnikNaRealizaciji;
-import backend.app.model.Predmet;
+
 import backend.app.repository.NastavnikNaRealizacijiRepository;
 
-import java.sql.Date;
+
 import java.util.Optional;
 
 @Service
@@ -32,7 +32,7 @@ public class NastavnikNaRealizacijiService {
         return nastavnikNaRealizacijiRepo.findById(id);
     }
 
-    public void addNastavnikNaRealizacijin(NastavnikNaRealizaciji nastavnikNaRealizaciji) {
+    public void addNastavnikNaRealizaciji(NastavnikNaRealizaciji nastavnikNaRealizaciji) {
     	nastavnikNaRealizacijiRepo.save(nastavnikNaRealizaciji);
     }
 

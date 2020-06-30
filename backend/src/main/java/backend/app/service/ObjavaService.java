@@ -18,7 +18,7 @@ public class ObjavaService {
 		return objavaRepo.findAll();
 	}
 	
-	public Optional<Objava> getOne(Long id) {
+	public Optional<Objava> getObjavaById(Long id) {
 		return objavaRepo.findById(id);
 	}
 	

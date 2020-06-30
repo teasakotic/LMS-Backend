@@ -39,7 +39,7 @@ public class StudentService {
     public StudentService() {
     }
 
-    public Iterable<Student> getStudents() {
+    public Iterable<Student> getStudent() {
         return studentRepo.findAll();
     }
 
@@ -75,8 +75,8 @@ public class StudentService {
         }
     }
     
-    public Iterable<Optional<Student>> getStudentsByIme(String ime){
-    	return studentRepo.findStudentsByIme("%"+ime+"%");
+    public Iterable<Optional<Student>> getStudentByIme(String ime){
+    	return studentRepo.findStudentByIme("%"+ime+"%");
     }
     
     public Optional<Student> getStudentByJmbg(String jmbg){

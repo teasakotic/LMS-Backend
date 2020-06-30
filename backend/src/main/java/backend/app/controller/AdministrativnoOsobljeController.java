@@ -67,8 +67,8 @@ public class AdministrativnoOsobljeController {
     @RequestMapping(value="/{username}", method=RequestMethod.PUT, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<AdministrativnoOsoblje> updateAdministrativnoOsoblje(@PathVariable String username, @RequestPart("profileImage") Optional<MultipartFile> file, @RequestPart("data") String admStfStr) throws IOException {
     	AdministrativnoOsoblje admStf = new ObjectMapper().readValue(admStfStr, AdministrativnoOsoblje.class);
-		if(file.isPresent()) {
-			fajlService.saveProfileImage(file.get(), "administrativno_osoblje_" + admStf.getRegistrovaniKorisnik().getUsername(), admStf.getLicniPodaci());
+		if(fajl.isPresent()) {
+			fajlService.saveProfileImage(fajl.get(), "administrativno_osoblje_" + admStf.getRegistrovaniKorisnik().getUsername(), admStf.getLicniPodaci());
 		}
 		administrativnoOsobljeService.updateAdministrativnoOsoblje(username, admStf);
         return new ResponseEntity<AdministrativnoOsoblje>(admStf, HttpStatus.OK);
@@ -90,7 +90,7 @@ public class AdministrativnoOsobljeController {
 	@Secured("ROLE_ADMINISTRATOR")
 	public ResponseEntity<AdministrativnoOsoblje> addAAdministrativnoOsoblje(@RequestPart("profileImage") Optional<MultipartFile> file, @RequestPart("data") String admStfStr) throws IOException {
     	AdministrativnoOsoblje admStf = new ObjectMapper().readValue(admStfStr, AdministrativnoOsoblje.class);
-		if(file.isPresent()) {
+		if(fajl.isPresent()) {
 			fajlService.saveProfileImage(file.get(), "administrativno_osoblje_" + admStf.getRegistrovaniKorisnik().getUsername(), admStf.getLicniPodaci());
 		}
 		administrativnoOsobljeService.addAdministrativnoOsoblje(admStf);

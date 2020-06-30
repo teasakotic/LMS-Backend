@@ -18,7 +18,7 @@ public class NaucnaOblastService {
 		return naucnaOblastRepo.findAll();
 	}
 	
-	public Optional<NaucnaOblast> getOne(Long id) {
+	public Optional<NaucnaOblast> getNaucnaOblastById(Long id) {
 		return naucnaOblastRepo.findById(id);
 	}
 	

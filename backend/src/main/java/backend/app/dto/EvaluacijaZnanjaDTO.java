@@ -2,6 +2,8 @@ package backend.app.dto;
 
 import java.sql.Date;
 
+
+
 public class EvaluacijaZnanjaDTO {
 	private int ocena;
 	private String predmet;

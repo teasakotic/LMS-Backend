@@ -63,10 +63,7 @@ public class PohadjanjePredmetaService {
     }
     
     public ArrayList<Student> getStudentByPredmet(Long predmetId, String nastavnikUsername){
-    	// new Date(0); Args 0 -> for default date value
-    	// TOOD: Ovo treba provjeriti
     	Date danas = new Date(0);
-    	
     	return pohadjanjePredmetaRepo.findStudentByPredmet(predmetId, danas, nastavnikUsername);
     }
     
