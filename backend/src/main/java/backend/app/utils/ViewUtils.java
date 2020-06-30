@@ -28,5 +28,7 @@ public class ViewUtils {
 	public interface ShowIzborniPredmet{};
 	public interface ShowPohadjanjePredmeta{};
 	public interface ShowDisertacija{};
-
+	public interface ShowFakultet{};
+	public interface ShowTelefoniUniverziteta{};
+	public interface ShowEmailUniverziteta{};
 }
