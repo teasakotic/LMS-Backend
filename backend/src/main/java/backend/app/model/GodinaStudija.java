@@ -1,8 +1,8 @@
 package backend.app.model;
 
+
 import java.sql.Date;
 import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,8 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -29,11 +28,9 @@ public class GodinaStudija {
 	private int godina;
 	
 	@Column(nullable = false)
-	@Temporal(TemporalType.DATE)
 	private Date datumPocetka;
 	
 	@Column(nullable = false)
-	@Temporal(TemporalType.DATE)
 	private Date datumKraja;
 
 	@JsonView(ShowRealizacijaPredmeta.class)

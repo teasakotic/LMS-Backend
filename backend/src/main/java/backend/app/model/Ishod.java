@@ -34,43 +34,40 @@ public class Ishod {
 
 	@ManyToOne(cascade= {CascadeType.REFRESH, CascadeType.MERGE})
 	private Predmet predmet;
+	@ManyToOne(cascade= {CascadeType.REFRESH, CascadeType.MERGE})
+	private RealizacijaPredmeta realizacijaPredmeta;
 	
 	@NotNull
 	private Boolean obrisan = false;
 
 	public Ishod() {}
 
-	public Ishod(String opis, Integer nedelja, String putanjaDoIkonice, Predmet predmet, Boolean obrisan) {
+	public Ishod(Long id, String opis, Integer nedelja, String putanjaDoIkonice, Predmet predmet,
+			RealizacijaPredmeta realizacijaPredmeta, @NotNull Boolean obrisan) {
 		super();
-		this.opis = opis; 
-		this.nedelja = nedelja; 
-		this.putanjaDoIkonice = putanjaDoIkonice; 
-		this.predmet = predmet; 
+		this.id = id;
+		this.opis = opis;
+		this.nedelja = nedelja;
+		this.putanjaDoIkonice = putanjaDoIkonice;
+		this.predmet = predmet;
+		this.realizacijaPredmeta = realizacijaPredmeta;
 		this.obrisan = obrisan;
 	}
 
-	public Long getId(){
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id){
+	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	public String getOpis(){
+
+	public String getOpis() {
 		return opis;
 	}
 
-	public void setOpis(String opis){
+	public void setOpis(String opis) {
 		this.opis = opis;
-	}
-	
-	public Predmet getPredmet(){
-		return predmet;
-	}
-
-	public void setPredmet(Predmet predmet){
-		this.predmet = predmet;
 	}
 
 	public Integer getNedelja() {
@@ -89,6 +86,22 @@ public class Ishod {
 		this.putanjaDoIkonice = putanjaDoIkonice;
 	}
 
+	public Predmet getPredmet() {
+		return predmet;
+	}
+
+	public void setPredmet(Predmet predmet) {
+		this.predmet = predmet;
+	}
+
+	public RealizacijaPredmeta getRealizacijaPredmeta() {
+		return realizacijaPredmeta;
+	}
+
+	public void setRealizacijaPredmeta(RealizacijaPredmeta realizacijaPredmeta) {
+		this.realizacijaPredmeta = realizacijaPredmeta;
+	}
+
 	public Boolean getObrisan() {
 		return obrisan;
 	}
@@ -96,5 +109,7 @@ public class Ishod {
 	public void setObrisan(Boolean obrisan) {
 		this.obrisan = obrisan;
 	}
+
+	
 	
 }

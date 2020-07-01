@@ -12,37 +12,37 @@ import backend.app.repository.RegistrovaniKorisnikRepository;
 public class RegistrovaniKorisnikService {
 
     @Autowired
-    private RegistrovaniKorisnikRepository regKorisnikRepo;
+    private RegistrovaniKorisnikRepository registrovaniKorisnikRepository;
 
     public RegistrovaniKorisnikService() {
     }
 
     public Iterable<RegistrovaniKorisnik> getRegistrovaniKorisnik() {
-        return regKorisnikRepo.findAll();
+        return registrovaniKorisnikRepository.findAll();
     }
 
     public Optional<RegistrovaniKorisnik> getRegistrovaniKorisnikById(Long id) {
-        return regKorisnikRepo.findById(id);
+        return registrovaniKorisnikRepository.findById(id);
     }
     
-    public Optional<RegistrovaniKorisnik> getRegistrovaniKorisnikByUserName(String username) {
-        return regKorisnikRepo.findByUsername(username);
+    public Optional<RegistrovaniKorisnik> getRegistrovaniKorisnikByUsername(String username) {
+        return registrovaniKorisnikRepository.findByUsername(username);
     }
 
     public void addRegistrovaniKorisnik(RegistrovaniKorisnik registrovaniKorisnik) {
-        regKorisnikRepo.save(registrovaniKorisnik);
+    	registrovaniKorisnikRepository.save(registrovaniKorisnik);
     }
 
     public void removeRegistrovaniKorisnik(Long id) {
-        Optional<RegistrovaniKorisnik> registrovaniKorisnik = regKorisnikRepo.findById(id);
-        regKorisnikRepo.delete(registrovaniKorisnik.get());
+        Optional<RegistrovaniKorisnik> registrovaniKorisnik = registrovaniKorisnikRepository.findById(id);
+        registrovaniKorisnikRepository.delete(registrovaniKorisnik.get());
     }
 
     public void updateRegistrovaniKorisnik(Long id, RegistrovaniKorisnik registrovaniKorisnik) {
-        Optional<RegistrovaniKorisnik> Acc = regKorisnikRepo.findById(id);
+        Optional<RegistrovaniKorisnik> Acc = registrovaniKorisnikRepository.findById(id);
         if(Acc.isPresent()) {
         	registrovaniKorisnik.setId(Acc.get().getId());
-            regKorisnikRepo.save(registrovaniKorisnik);
+        	registrovaniKorisnikRepository.save(registrovaniKorisnik);
         }
     }
 

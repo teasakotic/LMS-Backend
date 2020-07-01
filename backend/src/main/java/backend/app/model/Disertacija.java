@@ -1,6 +1,6 @@
 package backend.app.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.CascadeType;
@@ -11,8 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.TemporalType;
-import javax.persistence.Temporal;
+
 
 @Entity
 public class Disertacija {
@@ -25,11 +24,9 @@ public class Disertacija {
 	private String naslov;
 	
 	@Column(length=128, nullable = false)
-	@Temporal(value = TemporalType.DATE)
 	private Date datumAplikacije;
 	
 	@Column(length=128, nullable = false)
-	@Temporal(value = TemporalType.DATE)
 	private Date datumOdbrane;
 	
 	@ManyToOne(cascade= {CascadeType.REFRESH, CascadeType.MERGE})

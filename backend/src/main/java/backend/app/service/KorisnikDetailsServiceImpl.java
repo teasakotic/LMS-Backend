@@ -1,10 +1,6 @@
 package backend.app.service;
 
 import java.util.ArrayList;
-
-
-
-
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +17,14 @@ import backend.app.model.RegistrovaniKorisnik;
 
 
 @Service
-public class KorisnikDetaljiServiceImpl implements UserDetailsService {
+public class KorisnikDetailsServiceImpl implements UserDetailsService {
 	@Autowired
 	RegistrovaniKorisnikService registrovaniKorisnikService;
 	
 	@Override
 	@Transactional
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Optional<RegistrovaniKorisnik> registrovaniKorisnik = registrovaniKorisnikService.getRegistrovaniKorisnikByUserName(username);
+		Optional<RegistrovaniKorisnik> registrovaniKorisnik = registrovaniKorisnikService.getRegistrovaniKorisnikByUsername(username);
 		
 		if(registrovaniKorisnik.isPresent()) {
 			ArrayList<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();

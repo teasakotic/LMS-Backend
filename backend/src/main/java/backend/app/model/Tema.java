@@ -35,7 +35,7 @@ public class Tema {
 	private Kategorija kategorija;
 
 	@JsonView(ShowObjava.class)
-	@OneToMany(mappedBy="objava")
+	@OneToMany(mappedBy="tema")
 	private Set<Objava> objava;
 
 	@ManyToOne(cascade=CascadeType.ALL)
