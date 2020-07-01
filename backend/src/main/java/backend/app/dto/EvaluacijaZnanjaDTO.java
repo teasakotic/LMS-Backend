@@ -2,8 +2,6 @@ package backend.app.dto;
 
 import java.sql.Date;
 
-
-
 public class EvaluacijaZnanjaDTO {
 	private int ocena;
 	private String predmet;
@@ -11,7 +9,8 @@ public class EvaluacijaZnanjaDTO {
 	private String studijskiProgramIme;
 	private int bodovi;
 	private Date datum;
-	private int ects;
+	private int espb;
+	
 	public int getOcena() {
 		return ocena;
 	}
@@ -48,14 +47,14 @@ public class EvaluacijaZnanjaDTO {
 	public void setDatum(Date datum) {
 		this.datum = datum;
 	}
-	public int getEcts() {
-		return ects;
+	public int getEspb() {
+		return espb;
 	}
-	public void setEcts(int ects) {
-		this.ects = ects;
+	public void setEsbp(int esbp) {
+		this.espb = esbp;
 	}
 	public EvaluacijaZnanjaDTO(int ocena, String predmet, int godina, String studijskiProgramIme, int bodovi,
-			Date datum, int ects) {
+			Date datum, int espb) {
 		super();
 		this.ocena = ocena;
 		this.predmet = predmet;
@@ -63,7 +62,7 @@ public class EvaluacijaZnanjaDTO {
 		this.studijskiProgramIme = studijskiProgramIme;
 		this.bodovi = bodovi;
 		this.datum = datum;
-		this.ects = ects;
+		this.espb = espb;
 	}
 
 

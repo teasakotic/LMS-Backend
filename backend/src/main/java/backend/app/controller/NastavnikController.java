@@ -52,7 +52,7 @@ public class NastavnikController {
             produces = MediaType.APPLICATION_PDF_VALUE)
     public ResponseEntity<InputStreamResource> exportStudentsToPDF() {
 
-        ByteArrayInputStream bis = GeneratePDF.nastavnik((List<Nastavnik>)nastavnikService.getNastavnik());
+        ByteArrayInputStream bis = GeneratePDF.nastavnici((List<Nastavnik>)nastavnikService.getNastavnik());
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Disposition", "inline; filename=nastavnik.pdf");
@@ -94,7 +94,7 @@ public class NastavnikController {
     public ResponseEntity<Nastavnik> updateNastavnik(@PathVariable String username, @RequestPart("profileImage") Optional<MultipartFile> file, @RequestPart("data") String nastavnikStr) throws IOException {
     	Nastavnik nastavnik = new ObjectMapper().readValue(nastavnikStr, Nastavnik.class);
 		if(file.isPresent()) {
-			fileService.saveProfileImage(file.get(), "nastavnik_" + nastavnik.getRegistrovaniKorisnik().getUsername(), nastavnik.getLicniPodaci());
+			fileService.saveProfileImage(file.get(), "teacher_" + nastavnik.getRegistrovaniKorisnik().getUsername(), nastavnik.getLicniPodaci());
 		}
 		nastavnikService.updateNastavnik(username, nastavnik);
         return new ResponseEntity<Nastavnik>(nastavnik, HttpStatus.OK);

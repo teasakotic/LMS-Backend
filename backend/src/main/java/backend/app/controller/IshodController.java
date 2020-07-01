@@ -63,7 +63,7 @@ public class IshodController {
     	Ishod ishod = new ObjectMapper().readValue(ishodStr, Ishod.class);
     	Ishod savedIshod = ishodService.addIshod(ishod);
     	if(file.isPresent()) {
-    		fajlService.saveIshodIcon(file.get(), "Ishod_" + savedIshod.getId(), savedIshod);
+    		fajlService.saveIshodIcon(file.get(), "topic_" + savedIshod.getId(), savedIshod);
     		ishodService.updateIshod(savedIshod.getId(), savedIshod);
     	}
         return new ResponseEntity<Ishod>(savedIshod, HttpStatus.CREATED);

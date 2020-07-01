@@ -38,7 +38,7 @@ public class AdministrativnoOsoblje {
 
 	public AdministrativnoOsoblje() {}
 	
-	public AdministrativnoOsoblje(Adresa adresa, backend.app.model.RegistrovaniKorisnik registrovaniKorisnik, LicniPodaci licniPodaci, Boolean obrisan) {
+	public AdministrativnoOsoblje(Adresa adresa, RegistrovaniKorisnik registrovaniKorisnik, LicniPodaci licniPodaci, Boolean obrisan) {
 		super();
 		this.registrovaniKorisnik = registrovaniKorisnik;
 		this.adresa = adresa;
