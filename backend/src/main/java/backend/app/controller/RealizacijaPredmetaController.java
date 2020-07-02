@@ -71,5 +71,10 @@ public class RealizacijaPredmetaController {
     public ResponseEntity<Iterable<Nastavnik>> getNastavnikeKojiDrzeVezbe(@PathVariable Long predmetId) {
         return new ResponseEntity<Iterable<Nastavnik>>(realizacijaPredmetaService.getNastavnikeKojiDrzeVezbe(predmetId), HttpStatus.OK);
     }
+ //   @JsonView(HideOptionalProperties.class)
+  //  @RequestMapping(value="/nastavnikUsername/{usernameId}", method=RequestMethod.GET)
+   // public ResponseEntity<Iterable<RealizacijaPredmeta>> getNastavnikUsername(@PathVariable String usernameId) {
+     //   return new ResponseEntity<Iterable<RealizacijaPredmeta>>(realizacijaPredmetaService.getNastavnikUsername(usernameId), HttpStatus.OK);
+    //}
 
 }

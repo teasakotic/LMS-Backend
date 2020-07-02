@@ -51,4 +51,8 @@ public class RealizacijaPredmetaService {
         return realizacijaPredmetaRepo.findNastavnikeKojiDrzeVezbe(predmetId);
     }
 
+   // public Iterable<RealizacijaPredmeta> getNastavnikUsername(String username) {
+     //   return realizacijaPredmetaRepo.findByNastavnikUsername(username);
+    //}
+
 }

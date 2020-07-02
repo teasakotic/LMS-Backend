@@ -19,7 +19,7 @@ public class DatotekaZaDisertaciju {
 	@Column(length=128, nullable = false)
 	private String url;
 	
-	@OneToOne(mappedBy = "objavaFajl")
+	@OneToOne(mappedBy = "datotekaZaDisertaciju")
 	private Disertacija disertacija;
 
 	public DatotekaZaDisertaciju(String url, Disertacija disertacija) {

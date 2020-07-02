@@ -36,24 +36,21 @@ public class Disertacija {
 	private StudentNaGodini studentNaGodini;
 	
 	@OneToOne(fetch = FetchType.EAGER)
-	private DatotekaZaDisertaciju objavaFajl;
+	private DatotekaZaDisertaciju datotekaZaDisertaciju;
 	
 	public Disertacija() {}
-	
-	public Disertacija(String naslov, Date datumAplikacije, Date datumOdbrane, Nastavnik mentor,
-			StudentNaGodini studentNaGodini, DatotekaZaDisertaciju objavaFajl) {
+
+	public Disertacija(Long id, String naslov, Date datumAplikacije, Date datumOdbrane, Nastavnik mentor,
+			StudentNaGodini studentNaGodini, DatotekaZaDisertaciju datotekaZaDisertaciju) {
 		super();
+		this.id = id;
 		this.naslov = naslov;
 		this.datumAplikacije = datumAplikacije;
 		this.datumOdbrane = datumOdbrane;
 		this.mentor = mentor;
 		this.studentNaGodini = studentNaGodini;
-		this.objavaFajl = objavaFajl;
+		this.datotekaZaDisertaciju = datotekaZaDisertaciju;
 	}
-	
-	
-	
-	
 
 	public Long getId() {
 		return id;
@@ -103,12 +100,12 @@ public class Disertacija {
 		this.studentNaGodini = studentNaGodini;
 	}
 
-	public DatotekaZaDisertaciju getObjavaFajl() {
-		return objavaFajl;
+	public DatotekaZaDisertaciju getDatotekaZaDisertaciju() {
+		return datotekaZaDisertaciju;
 	}
 
-	public void setObjavaFajl(DatotekaZaDisertaciju objavaFajl) {
-		this.objavaFajl = objavaFajl;
+	public void setDatotekaZaDisertaciju(DatotekaZaDisertaciju datotekaZaDisertaciju) {
+		this.datotekaZaDisertaciju = datotekaZaDisertaciju;
 	}
 	
 	

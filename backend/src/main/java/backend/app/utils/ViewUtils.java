@@ -32,4 +32,6 @@ public class ViewUtils {
 	public interface ShowEmailUniverziteta{};
 	public interface ShowTelefoniUniverziteta{};
 	public interface ShowFakultet{};
+	public interface ShowNastavnik{};
+	public interface ShowAdministrativnoOsoblje{};
 }

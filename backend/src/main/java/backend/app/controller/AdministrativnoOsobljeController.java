@@ -22,7 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import backend.app.model.AdministrativnoOsoblje;
 import backend.app.model.GodinaStudija;
-import backend.app.model.Student;
+
 import backend.app.service.AdministrativnoOsobljeService;
 import backend.app.service.FileService;
 import backend.app.utils.ViewUtils.HideOptionalProperties;
@@ -54,25 +54,26 @@ public class AdministrativnoOsobljeController {
         return new ResponseEntity<AdministrativnoOsoblje>(HttpStatus.NOT_FOUND);
     }
     
-    @JsonView(HideOptionalProperties.class)
-    @RequestMapping(value="/username/{username}", method=RequestMethod.GET)
-    public ResponseEntity<AdministrativnoOsoblje> getAdministrativnoOsobljeByUsername(@PathVariable String username) {
-        Optional<AdministrativnoOsoblje> administrativnoOsoblje = administrativnoOsobljeService.getAdministrativnoOsobljeByUsername(username);
-        if(administrativnoOsoblje.isPresent()) {
-            return new ResponseEntity<AdministrativnoOsoblje>(administrativnoOsoblje.get(), HttpStatus.OK);
-        }
-        return new ResponseEntity<AdministrativnoOsoblje>(HttpStatus.NOT_FOUND);
-    }
+    
+    //@JsonView(HideOptionalProperties.class)
+    //@RequestMapping(value="/username/{username}", method=RequestMethod.GET)
+   // public ResponseEntity<AdministrativnoOsoblje> getAdministrativnoOsobljeByUsername(@PathVariable String username) {
+  //      Optional<AdministrativnoOsoblje> administrativnoOsoblje = administrativnoOsobljeService.getAdministrativnoOsobljeByUsername(username);
+  //      if(administrativnoOsoblje.isPresent()) {
+    //        return new ResponseEntity<AdministrativnoOsoblje>(administrativnoOsoblje.get(), HttpStatus.OK);
+      //  }
+       // return new ResponseEntity<AdministrativnoOsoblje>(HttpStatus.NOT_FOUND);
+   // }
 
-    @RequestMapping(value="/{username}", method=RequestMethod.PUT, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<AdministrativnoOsoblje> updateAdministrativnoOsoblje(@PathVariable String username, @RequestPart("profileImage") Optional<MultipartFile> file, @RequestPart("data") String admStfStr) throws IOException {
-    	AdministrativnoOsoblje admStf = new ObjectMapper().readValue(admStfStr, AdministrativnoOsoblje.class);
-		if(file.isPresent()) {
-			fileService.saveProfileImage(file.get(), "administrative_staff_" + admStf.getRegistrovaniKorisnik().getUsername(), admStf.getLicniPodaci());
-		}
-		administrativnoOsobljeService.updateAdministrativnoOsoblje(username, admStf);
-        return new ResponseEntity<AdministrativnoOsoblje>(admStf, HttpStatus.OK);
-    }
+   // @RequestMapping(value="/{username}", method=RequestMethod.PUT, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    //public ResponseEntity<AdministrativnoOsoblje> updateAdministrativnoOsoblje(@PathVariable String username, @RequestPart("profileImage") Optional<MultipartFile> file, @RequestPart("data") String admStfStr) throws IOException {
+    	//AdministrativnoOsoblje admStf = new ObjectMapper().readValue(admStfStr, AdministrativnoOsoblje.class);
+		//if(file.isPresent()) {
+			//fileService.saveProfileImage(file.get(), "administrative_staff_" + admStf.getRegistrovaniKorisnik().getUsername(), admStf.getLicniPodaci());
+		//}
+		//administrativnoOsobljeService.updateAdministrativnoOsoblje(username, admStf);
+        //return new ResponseEntity<AdministrativnoOsoblje>(admStf, HttpStatus.OK);
+    //}
 
     @RequestMapping(value="/{id}", method=RequestMethod.DELETE)
     public ResponseEntity<AdministrativnoOsoblje> removeAdministrativnoOsoblje(@PathVariable Long id) {
@@ -97,11 +98,7 @@ public class AdministrativnoOsobljeController {
 		return new ResponseEntity<AdministrativnoOsoblje>(admStf, HttpStatus.CREATED);
 	}
     
-    @JsonView(HideOptionalProperties.class)
-    @RequestMapping(value="/upis/{godinaStudijaId}", method=RequestMethod.GET)
-    public ResponseEntity<Iterable<Student>> getStudentiZaUpisUNarednuGodinu(@PathVariable Long godinaStudijaId) {
-        return new ResponseEntity<Iterable<Student>>(administrativnoOsobljeService.getStudentiZaUpisUNarednuGodinu(godinaStudijaId), HttpStatus.OK);
-    }
+
 
     
     @JsonView(HideOptionalProperties.class)

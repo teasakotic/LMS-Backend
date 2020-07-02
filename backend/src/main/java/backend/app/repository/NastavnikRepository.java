@@ -13,7 +13,7 @@ public interface NastavnikRepository extends JpaRepository<Nastavnik, Long> {
 	@Query("SELECT t FROM Nastavnik t WHERE t.licniPodaci.ime LIKE ?1")
 	Iterable<Optional<Nastavnik>> findNastavnikByIme(String ime);
 	
-	@Query("SELECT t FROM Nastavnik t WHERE t.licniPodaci.brTelefona = ?1")
+	@Query("SELECT t FROM Nastavnik t WHERE t.licniPodaci.jmbg = ?1")
 	Optional<Nastavnik> findNastavnikByJmbg(String jmbg);
 	
 	@Query("SELECT t FROM Nastavnik t WHERE t.registrovaniKorisnik.username = ?1")

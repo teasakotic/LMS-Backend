@@ -16,11 +16,11 @@ import backend.app.model.KorisnickaDozvola;
 import backend.app.model.RegistrovaniKorisnik;
 
 
+
 @Service
 public class KorisnikDetailsServiceImpl implements UserDetailsService {
 	@Autowired
 	RegistrovaniKorisnikService registrovaniKorisnikService;
-	
 	@Override
 	@Transactional
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

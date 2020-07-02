@@ -12,7 +12,9 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import backend.app.utils.ViewUtils.ShowAdministrativnoOsoblje;
 import backend.app.utils.ViewUtils.ShowKorisnickaDozvola;
+
 
 @Entity
 public class RegistrovaniKorisnik {
@@ -34,45 +36,52 @@ public class RegistrovaniKorisnik {
 	@OneToMany(mappedBy = "registrovaniKorisnik", cascade = CascadeType.ALL)
 	private Set<KorisnickaDozvola> korisnickaDozvola;
 	
+	@JsonView(ShowAdministrativnoOsoblje.class)
+	@OneToMany(mappedBy="registrovaniKorisnik")
+	private Set<AdministrativnoOsoblje> administrativnoOsoblje;
+	
 	public RegistrovaniKorisnik() {}
 
-	public RegistrovaniKorisnik(String username, String lozinka, String email, Set<KorisnickaDozvola> korisnickaDozvola) {
+	public RegistrovaniKorisnik(Long id, String username, String lozinka, String email,
+			Set<KorisnickaDozvola> korisnickaDozvola, Set<AdministrativnoOsoblje> administrativnoOsoblje) {
 		super();
+		this.id = id;
 		this.username = username;
 		this.lozinka = lozinka;
 		this.email = email;
 		this.korisnickaDozvola = korisnickaDozvola;
+		this.administrativnoOsoblje = administrativnoOsoblje;
 	}
 
-	public Long getId(){
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id){
+	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	public String getUsername(){
+
+	public String getUsername() {
 		return username;
 	}
 
-	public void setUsername(String username){
+	public void setUsername(String username) {
 		this.username = username;
 	}
-	
-	public String getLozinka(){
+
+	public String getLozinka() {
 		return lozinka;
 	}
 
-	public void setLozinka(String lozinka){
+	public void setLozinka(String lozinka) {
 		this.lozinka = lozinka;
 	}
-	
-	public String getEmail(){
+
+	public String getEmail() {
 		return email;
 	}
 
-	public void setEmail(String email){
+	public void setEmail(String email) {
 		this.email = email;
 	}
 
@@ -83,5 +92,15 @@ public class RegistrovaniKorisnik {
 	public void setKorisnickaDozvola(Set<KorisnickaDozvola> korisnickaDozvola) {
 		this.korisnickaDozvola = korisnickaDozvola;
 	}
+
+	public Set<AdministrativnoOsoblje> getAdministrativnoOsoblje() {
+		return administrativnoOsoblje;
+	}
+
+	public void setAdministrativnoOsoblje(Set<AdministrativnoOsoblje> administrativnoOsoblje) {
+		this.administrativnoOsoblje = administrativnoOsoblje;
+	}
+
+	
 
 }

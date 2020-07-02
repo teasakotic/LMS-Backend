@@ -57,8 +57,10 @@ public class PredmetService {
     	return ishodRepo.findByPredmetIdEquals(predmetId);
     }
     
-    public Iterable<Predmet> getPredusloviZaObaveznePredmeteByGodinaStudija(Long godinaStudijaId) {
-        return predmetRepo.getPredusloviZaObaveznePredmeteByGodinaStudija(godinaStudijaId);
-    }
+ 
+  //  public Iterable<Predmet> getPredusloviZaObaveznePredmeteByGodinaStudija(Long godinaStudijaId) {
+    //    return predmetRepo.getPredusloviZaObaveznePredmeteByGodinaStudija(godinaStudijaId);
+   // }
+
 
 }

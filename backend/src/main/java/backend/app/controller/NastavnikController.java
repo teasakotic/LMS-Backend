@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import backend.app.model.Nastavnik;
-import backend.app.model.RealizacijaPredmeta;
+//import backend.app.model.RealizacijaPredmeta;
 import backend.app.service.FileService;
 import backend.app.service.NastavnikService;
 
@@ -124,10 +124,10 @@ public class NastavnikController {
 		return new ResponseEntity<Nastavnik>(nastavnik, HttpStatus.CREATED);
 	}
     
-    @JsonView(HideOptionalProperties.class)
-    @RequestMapping(value="/{username}/realizacijaPredmeta", method=RequestMethod.GET)
-    public ResponseEntity<Iterable<RealizacijaPredmeta>> getRealizacijaPredmeta(@PathVariable String username) {
-        return new ResponseEntity<Iterable<RealizacijaPredmeta>>(nastavnikService.getRealizacijaPredmeta(username), HttpStatus.OK);
-    }
+   // @JsonView(HideOptionalProperties.class)
+    //@RequestMapping(value="/{username}/realizacijaPredmeta", method=RequestMethod.GET)
+    //public ResponseEntity<Iterable<RealizacijaPredmeta>> getRealizacijaPredmeta(@PathVariable String username) {
+      //  return new ResponseEntity<Iterable<RealizacijaPredmeta>>(nastavnikService.getRealizacijaPredmeta(username), HttpStatus.OK);
+   // }
 
 }

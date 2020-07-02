@@ -68,7 +68,7 @@ public class PredmetController {
     }
     
     @JsonView(HideOptionalProperties.class)
-    @RequestMapping(value="/findByNazic/{naziv}", method=RequestMethod.GET)
+    @RequestMapping(value="/findByNaziv/{naziv}", method=RequestMethod.GET)
     public ResponseEntity<Iterable<Optional<Predmet>>> getPredmetByNaziv(@PathVariable String naziv) {
         Iterable<Optional<Predmet>> predmet = predmetService.getPredmetByNaziv(naziv);
         return new ResponseEntity<Iterable<Optional<Predmet>>>(predmet, HttpStatus.OK);

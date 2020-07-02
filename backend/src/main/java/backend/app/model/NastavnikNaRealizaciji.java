@@ -27,53 +27,70 @@ public class NastavnikNaRealizaciji {
 	@ManyToOne(cascade=CascadeType.ALL)
 	private RealizacijaPredmeta realizacijaPredmeta;
 
+	@ManyToOne(cascade=CascadeType.ALL)
+	private LicniPodaci licniPodaci;
+
 	public NastavnikNaRealizaciji() {}
 
-	public NastavnikNaRealizaciji(Integer brojCasova, TipNastave tipNastave, Nastavnik nastavnik, RealizacijaPredmeta realizacijaPredmeta){
+	public NastavnikNaRealizaciji(Long id, Integer brojCasova, TipNastave tipNastave, Nastavnik nastavnik,
+			RealizacijaPredmeta realizacijaPredmeta, LicniPodaci licniPodaci) {
+		super();
+		this.id = id;
 		this.brojCasova = brojCasova;
 		this.tipNastave = tipNastave;
 		this.nastavnik = nastavnik;
 		this.realizacijaPredmeta = realizacijaPredmeta;
+		this.licniPodaci = licniPodaci;
 	}
 
-	public Long getId(){
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id){
+	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	public Integer getBrojCasova(){
+
+	public Integer getBrojCasova() {
 		return brojCasova;
 	}
 
-	public void setBrojCasova(Integer brojCasova){
+	public void setBrojCasova(Integer brojCasova) {
 		this.brojCasova = brojCasova;
 	}
-	
-	public TipNastave getTipNastave(){
+
+	public TipNastave getTipNastave() {
 		return tipNastave;
 	}
 
-	public void setTipNastave(TipNastave tipNastave){
+	public void setTipNastave(TipNastave tipNastave) {
 		this.tipNastave = tipNastave;
 	}
-	
-	public Nastavnik getNastavnik(){
+
+	public Nastavnik getNastavnik() {
 		return nastavnik;
 	}
 
-	public void setNastavnik(Nastavnik nastavnik){
+	public void setNastavnik(Nastavnik nastavnik) {
 		this.nastavnik = nastavnik;
 	}
-	
-	public RealizacijaPredmeta getRealizacijaPredmeta(){
+
+	public RealizacijaPredmeta getRealizacijaPredmeta() {
 		return realizacijaPredmeta;
 	}
 
-	public void setRealizacijaPredmeta(RealizacijaPredmeta realizacijaPredmeta){
+	public void setRealizacijaPredmeta(RealizacijaPredmeta realizacijaPredmeta) {
 		this.realizacijaPredmeta = realizacijaPredmeta;
 	}
+
+	public LicniPodaci getLicniPodaci() {
+		return licniPodaci;
+	}
+
+	public void setLicniPodaci(LicniPodaci licniPodaci) {
+		this.licniPodaci = licniPodaci;
+	}
+
+	
 	
 }

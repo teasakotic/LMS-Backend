@@ -16,6 +16,7 @@ import org.hibernate.annotations.Where;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import backend.app.utils.ViewUtils.ShowNastavnikNaRealizaciji;
 import backend.app.utils.ViewUtils.ShowZvanje;
 
 @Entity
@@ -42,68 +43,84 @@ public class Nastavnik {
 	@ManyToOne(cascade=CascadeType.ALL)
 	private LicniPodaci licniPodaci;
 	
+	@JsonView(ShowNastavnikNaRealizaciji.class)
+	@OneToMany(mappedBy="nastavnik")
+	private Set<NastavnikNaRealizaciji> nastavnikNaRealizaciji; 
+
+	
 	@NotNull
 	private Boolean obrisan = false;
 
 	public Nastavnik() {}
 
-	public Nastavnik(String biografija, Set<Zvanje> zvanje, Adresa adresa, RegistrovaniKorisnik registrovaniKorisnik,
-			LicniPodaci licniPodaci, Boolean obrisan) {
+	public Nastavnik(Long id, String biografija, Set<Zvanje> zvanje, Adresa adresa,
+			RegistrovaniKorisnik registrovaniKorisnik, LicniPodaci licniPodaci,
+			Set<NastavnikNaRealizaciji> nastavnikNaRealizaciji, @NotNull Boolean obrisan) {
 		super();
-		this.biografija = biografija; 
-		this.zvanje = zvanje; 
-		this.adresa = adresa; 
+		this.id = id;
+		this.biografija = biografija;
+		this.zvanje = zvanje;
+		this.adresa = adresa;
 		this.registrovaniKorisnik = registrovaniKorisnik;
-		this.licniPodaci = licniPodaci; 
+		this.licniPodaci = licniPodaci;
+		this.nastavnikNaRealizaciji = nastavnikNaRealizaciji;
 		this.obrisan = obrisan;
 	}
 
-	public Long getId(){
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id){
+	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	public String getBiografija(){
+
+	public String getBiografija() {
 		return biografija;
 	}
 
-	public void setBiografija(String biografija){
+	public void setBiografija(String biografija) {
 		this.biografija = biografija;
 	}
-	
-	public Set<Zvanje> getZvanje(){
+
+	public Set<Zvanje> getZvanje() {
 		return zvanje;
 	}
 
-	public void setZvanje(Set<Zvanje> zvanje){
+	public void setZvanje(Set<Zvanje> zvanje) {
 		this.zvanje = zvanje;
 	}
-	
-	public Adresa getAdresa(){
+
+	public Adresa getAdresa() {
 		return adresa;
 	}
 
-	public void setAdresa(Adresa adresa){
+	public void setAdresa(Adresa adresa) {
 		this.adresa = adresa;
 	}
-	
-	public RegistrovaniKorisnik getRegistrovaniKorisnik(){
+
+	public RegistrovaniKorisnik getRegistrovaniKorisnik() {
 		return registrovaniKorisnik;
 	}
 
-	public void setRegistrovaniKorisnik(RegistrovaniKorisnik registrovaniKorisnik){
+	public void setRegistrovaniKorisnik(RegistrovaniKorisnik registrovaniKorisnik) {
 		this.registrovaniKorisnik = registrovaniKorisnik;
 	}
-	
-	public LicniPodaci getLicniPodaci(){
+
+	public LicniPodaci getLicniPodaci() {
 		return licniPodaci;
 	}
 
-	public void setLicniPodaci(LicniPodaci licniPodaci){
+	public void setLicniPodaci(LicniPodaci licniPodaci) {
 		this.licniPodaci = licniPodaci;
+	}
+
+	public Set<NastavnikNaRealizaciji> getNastavnikNaRealizaciji() {
+		return nastavnikNaRealizaciji;
+	}
+
+	public void setNastavnikNaRealizaciji(Set<NastavnikNaRealizaciji> nastavnikNaRealizaciji) {
+		this.nastavnikNaRealizaciji = nastavnikNaRealizaciji;
 	}
 
 	public Boolean getObrisan() {
@@ -113,5 +130,6 @@ public class Nastavnik {
 	public void setObrisan(Boolean obrisan) {
 		this.obrisan = obrisan;
 	}
+
 	
 }

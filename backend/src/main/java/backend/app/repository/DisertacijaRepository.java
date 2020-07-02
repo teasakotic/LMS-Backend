@@ -11,7 +11,7 @@ import backend.app.model.Disertacija;
 @Repository
 public interface DisertacijaRepository extends JpaRepository<Disertacija, Long> {
 	
-	@Query("SELECT dis.naslov, dis.datumAplikacije, dis.datumOdbrane, dis.file.url, "
+	@Query("SELECT dis.naslov, dis.datumAplikacije, dis.datumOdbrane, "
 			+ "dis.mentor.licniPodaci.ime, dis.mentor.licniPodaci.prezime, "
 			+ "dis.studentNaGodini.godinaStudija.studijskiProgram.naziv "
 			+ "FROM Disertacija dis WHERE dis.studentNaGodini.student.id = ?1") 

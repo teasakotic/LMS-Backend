@@ -16,6 +16,7 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import backend.app.utils.ViewUtils.ShowRealizacijaPredmeta;
+import backend.app.utils.ViewUtils.ShowStudentNaGodini;
 
 @Entity
 public class GodinaStudija {
@@ -39,25 +40,34 @@ public class GodinaStudija {
 
 	@ManyToOne(cascade=CascadeType.ALL)
 	private StudijskiProgram studijskiProgram;
+	
+	@JsonView(ShowStudentNaGodini.class)
+	@OneToMany(mappedBy="godinaStudija")
+	private Set<StudentNaGodini> studentNaGodini;
 
 	public GodinaStudija() {}
 
-	public GodinaStudija(int godina, Date datumPocetka, Date datumKraja, Set<RealizacijaPredmeta> realizacijaPredmeta, StudijskiProgram studijskiProgram) {
+	public GodinaStudija(Long id, int godina, Date datumPocetka, Date datumKraja,
+			Set<RealizacijaPredmeta> realizacijaPredmeta, StudijskiProgram studijskiProgram,
+			Set<StudentNaGodini> studentNaGodini) {
+		super();
+		this.id = id;
 		this.godina = godina;
-		this.datumPocetka = datumPocetka; 
-		this.datumKraja = datumKraja; 
-		this.realizacijaPredmeta = realizacijaPredmeta; 
+		this.datumPocetka = datumPocetka;
+		this.datumKraja = datumKraja;
+		this.realizacijaPredmeta = realizacijaPredmeta;
 		this.studijskiProgram = studijskiProgram;
+		this.studentNaGodini = studentNaGodini;
 	}
 
-	public Long getId(){
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id){
+	public void setId(Long id) {
 		this.id = id;
 	}
-		
+
 	public int getGodina() {
 		return godina;
 	}
@@ -82,20 +92,29 @@ public class GodinaStudija {
 		this.datumKraja = datumKraja;
 	}
 
-	public Set<RealizacijaPredmeta> getRealizacijaPredmeta(){
+	public Set<RealizacijaPredmeta> getRealizacijaPredmeta() {
 		return realizacijaPredmeta;
 	}
 
-	public void setRealizacijaPredmeta(Set<RealizacijaPredmeta> realizacijaPredmeta){
+	public void setRealizacijaPredmeta(Set<RealizacijaPredmeta> realizacijaPredmeta) {
 		this.realizacijaPredmeta = realizacijaPredmeta;
 	}
-	
-	public StudijskiProgram getStudijskiProgram(){
+
+	public StudijskiProgram getStudijskiProgram() {
 		return studijskiProgram;
 	}
 
-	public void setStudijskiProgram(StudijskiProgram studijskiProgram){
+	public void setStudijskiProgram(StudijskiProgram studijskiProgram) {
 		this.studijskiProgram = studijskiProgram;
 	}
+
+	public Set<StudentNaGodini> getStudentNaGodini() {
+		return studentNaGodini;
+	}
+
+	public void setStudentNaGodini(Set<StudentNaGodini> studentNaGodini) {
+		this.studentNaGodini = studentNaGodini;
+	}
+
 	
 }

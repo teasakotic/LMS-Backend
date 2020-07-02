@@ -26,7 +26,7 @@ public interface PohadjanjePredmetaRepository extends JpaRepository<PohadjanjePr
 			+ "sa.realizacijaPredmeta.godinaStudija.studijskiProgram.naziv, er.bodovi, er.evaluacijaZnanja.vremePocetka, sa.realizacijaPredmeta.predmet.espb \n" + 
 			"FROM Polaganje er, PohadjanjePredmeta sa \n" + 
 			"WHERE sa.student.registrovaniKorisnik.username = ?1 \n" + 
-			"AND sa.realizacijaPredmeta.id = er.evaluzacijaZnanja.realizacijaPredmeta.id "
+			"AND sa.realizacijaPredmeta.id = er.evaluacijaZnanja.realizacijaPredmeta.id " 
 			+ "AND sa.konacnaOcena IS NOT NULL")
 	ArrayList<Object> findPolozenePredmete(String username);
 	

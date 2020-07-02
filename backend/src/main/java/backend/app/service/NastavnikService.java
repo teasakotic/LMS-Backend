@@ -7,9 +7,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import backend.app.model.Nastavnik;
-import backend.app.model.RealizacijaPredmeta;
+//import backend.app.model.RealizacijaPredmeta;
 import backend.app.repository.NastavnikRepository;
-import backend.app.repository.RealizacijaPredmetaRepository;
+//import backend.app.repository.RealizacijaPredmetaRepository;
 
 @Service
 public class NastavnikService {
@@ -17,8 +17,8 @@ public class NastavnikService {
     @Autowired
     private NastavnikRepository nastavnikRepo;
     
-    @Autowired
-    private RealizacijaPredmetaRepository realizacijaPredmetaRepo;
+ //   @Autowired
+   // private RealizacijaPredmetaRepository realizacijaPredmetaRepo;
     
     @Autowired
     private LoginService loginServ;
@@ -86,8 +86,8 @@ public class NastavnikService {
     	return nastavnikRepo.findNastavnikByJmbg(jmbg);
     }
     
-    public Iterable<RealizacijaPredmeta> getRealizacijaPredmeta(String username) {
-        return realizacijaPredmetaRepo.findByNastavnikUsername(username);
-    }
+  //  public Iterable<RealizacijaPredmeta> getRealizacijaPredmeta(String username) {
+    //    return realizacijaPredmetaRepo.findByNastavnikUsername(username);
+    //}
 
 }
