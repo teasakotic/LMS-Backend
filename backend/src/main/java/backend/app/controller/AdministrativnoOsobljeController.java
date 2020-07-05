@@ -65,15 +65,15 @@ public class AdministrativnoOsobljeController {
        // return new ResponseEntity<AdministrativnoOsoblje>(HttpStatus.NOT_FOUND);
    // }
 
-   // @RequestMapping(value="/{username}", method=RequestMethod.PUT, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    //public ResponseEntity<AdministrativnoOsoblje> updateAdministrativnoOsoblje(@PathVariable String username, @RequestPart("profileImage") Optional<MultipartFile> file, @RequestPart("data") String admStfStr) throws IOException {
-    	//AdministrativnoOsoblje admStf = new ObjectMapper().readValue(admStfStr, AdministrativnoOsoblje.class);
-		//if(file.isPresent()) {
-			//fileService.saveProfileImage(file.get(), "administrative_staff_" + admStf.getRegistrovaniKorisnik().getUsername(), admStf.getLicniPodaci());
-		//}
-		//administrativnoOsobljeService.updateAdministrativnoOsoblje(username, admStf);
-        //return new ResponseEntity<AdministrativnoOsoblje>(admStf, HttpStatus.OK);
-    //}
+ //   @RequestMapping(value="/{username}", method=RequestMethod.PUT, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+  //  public ResponseEntity<AdministrativnoOsoblje> updateAdministrativnoOsoblje(@PathVariable String username, @RequestPart("profileImage") Optional<MultipartFile> file, @RequestPart("data") String admStfStr) throws IOException {
+   // 	AdministrativnoOsoblje admStf = new ObjectMapper().readValue(admStfStr, AdministrativnoOsoblje.class);
+//		if(file.isPresent()) {
+	//		fileService.saveProfileImage(file.get(), "administrative_staff_" + admStf.getRegistrovaniKorisnik().getUsername(), admStf.getLicniPodaci());
+	//	}
+	//	administrativnoOsobljeService.updateAdministrativnoOsoblje(username, admStf);
+     //   return new ResponseEntity<AdministrativnoOsoblje>(admStf, HttpStatus.OK);
+   // }
 
     @RequestMapping(value="/{id}", method=RequestMethod.DELETE)
     public ResponseEntity<AdministrativnoOsoblje> removeAdministrativnoOsoblje(@PathVariable Long id) {

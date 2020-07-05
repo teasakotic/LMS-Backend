@@ -25,14 +25,14 @@ public class AdministrativnoOsobljeService {
     @Autowired
     private LoginService loginServ;
     
-   // @Autowired
-    //private RegistrovaniKorisnikService korisnikServ;
+ //   @Autowired
+//    private RegistrovaniKorisnikService korisnikServ;
     
-    //@Autowired
-    //private AdresaService adresaServ;
+  //  @Autowired
+   // private AdresaService adresaServ;
     
-   // @Autowired
-    //private LicniPodaciService licniServ;
+  //  @Autowired
+   // private LicniPodaciService licniServ;
     
     @Autowired
     private StudentService studentService;
@@ -65,8 +65,8 @@ public class AdministrativnoOsobljeService {
         return administrativnoOsobljeRepo.findById(id);
     }
     
-    //public Optional<AdministrativnoOsoblje> getAdministrativnoOsobljeByUsername(String username) {
-      //  return administrativnoOsobljeRepo.getByUsername(username);
+   // public Optional<AdministrativnoOsoblje> getAdministrativnoOsobljeByUsername(String username) {
+     //   return administrativnoOsobljeRepo.getByUsername(username);
     //}
 
     public void addAdministrativnoOsoblje(AdministrativnoOsoblje administrativnoOsoblje) {
@@ -82,17 +82,16 @@ public class AdministrativnoOsobljeService {
         administrativnoOsobljeRepo.save(a);
     }
 
-   // public void updateAdministrativnoOsoblje(String username, AdministrativnoOsoblje administrativnoOsoblje) {
-     //   Optional<AdministrativnoOsoblje> Adm = administrativnoOsobljeRepo.getByUsername(username);
-       // if(Adm.isPresent()) {
+ //   public void updateAdministrativnoOsoblje(String username, AdministrativnoOsoblje administrativnoOsoblje) {
+   //     Optional<AdministrativnoOsoblje> Adm = administrativnoOsobljeRepo.getByUsername(username);
+      //  if(Adm.isPresent()) {
         //	administrativnoOsoblje.setId(Adm.get().getId());
-        	//administrativnoOsoblje.getRegistrovaniKorisnik().setLozinka(passwordEncoder.encode(administrativnoOsoblje.getRegistrovaniKorisnik().getLozinka()));
-            //korisnikServ.updateRegistrovaniKorisnik(administrativnoOsoblje.getRegistrovaniKorisnik().getId(), administrativnoOsoblje.getRegistrovaniKorisnik());
-            //adresaServ.updateAdresa(administrativnoOsoblje.getAdresa().getId(), administrativnoOsoblje.getAdresa());
-            //licniServ.updateLicniPodaci(administrativnoOsoblje.getLicniPodaci().getId(), administrativnoOsoblje.getLicniPodaci());
-        //}
-    //}
-    
+       // 	administrativnoOsoblje.getRegistrovaniKorisnik().setLozinka(passwordEncoder.encode(administrativnoOsoblje.getRegistrovaniKorisnik().getLozinka()));
+        //    korisnikServ.updateRegistrovaniKorisnik(administrativnoOsoblje.getRegistrovaniKorisnik().getId(), administrativnoOsoblje.getRegistrovaniKorisnik());
+         //   adresaServ.updateAdresa(administrativnoOsoblje.getAdresa().getId(), administrativnoOsoblje.getAdresa());
+         //   licniServ.updateLicniPodaci(administrativnoOsoblje.getLicniPodaci().getId(), administrativnoOsoblje.getLicniPodaci());
+       // }
+   // }
     
     
     

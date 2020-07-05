@@ -31,7 +31,7 @@ public class DrzavaController {
 
     @JsonView(HideOptionalProperties.class)
     @RequestMapping()
-    public ResponseEntity<Iterable<Drzava>> getCountries() {
+    public ResponseEntity<Iterable<Drzava>> getDrzava() {
         return new ResponseEntity<Iterable<Drzava>>(drzavaService.getDrzava(), HttpStatus.OK);
     }
 
