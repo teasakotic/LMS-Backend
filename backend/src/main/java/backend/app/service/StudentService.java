@@ -7,7 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import backend.app.model.Student;
-import backend.app.repository.RadNaStudentuRepositoryImpl;
+import backend.app.repository.StudentCustomRepositoryImpl;
 import backend.app.repository.StudentRepository;
 
 import java.util.Collection;
@@ -19,7 +19,7 @@ public class StudentService {
     private StudentRepository studentRepo;
     
     @Autowired
-    private RadNaStudentuRepositoryImpl radNaStudentuRepo;
+    private StudentCustomRepositoryImpl radNaStudentuRepo;
 
     @Autowired
     private RegistrovaniKorisnikService regServ;

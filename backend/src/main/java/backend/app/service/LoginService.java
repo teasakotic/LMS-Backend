@@ -1,24 +1,24 @@
 package backend.app.service;
 
-import java.util.HashMap;
-import java.util.HashSet;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.stereotype.Service;
-
 import backend.app.model.KorisnickaDozvola;
 import backend.app.model.RegistrovaniKorisnik;
 import backend.app.repository.DozvolaRepository;
 import backend.app.repository.RegistrovaniKorisnikRepository;
 import backend.app.utils.TokenUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.InternalAuthenticationServiceException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.HashSet;
 
 @Service
 public class LoginService {
@@ -35,7 +35,7 @@ public class LoginService {
 	private AuthenticationManager authenticationManager;
 
 	@Autowired
-	private UserDetailsService userDetailsService;
+	private UserDetailsServiceImpl userDetailsService;
 	
 	@Autowired
 	private TokenUtils tokenUtils;
@@ -44,19 +44,26 @@ public class LoginService {
 		try {
 			UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(regKorisnik.getUsername(),
 					regKorisnik.getLozinka());
-			
+
+
 			Authentication authentication = authenticationManager.authenticate(token);
+
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 
 			UserDetails details = userDetailsService.loadUserByUsername(regKorisnik.getUsername());
 			String userToken = tokenUtils.generateToken(details);
-			
+
 			HashMap<String, String> data = new HashMap<String, String>();
 			data.put("token", userToken);
 			
 			return new ResponseEntity<HashMap<String, String>>(data, HttpStatus.OK);
 			
-		} catch (Exception e) {
+		}
+		catch (InternalAuthenticationServiceException e) {
+			System.out.println("Auth error");
+			return new ResponseEntity<HashMap<String, String>>(HttpStatus.UNAUTHORIZED);
+		}
+		catch (UsernameNotFoundException e) {
 			return new ResponseEntity<HashMap<String, String>>(HttpStatus.UNAUTHORIZED);
 		}
 	}

@@ -1,7 +1,7 @@
 package backend.app.controller;
 
-import java.util.HashMap;
-
+import backend.app.model.RegistrovaniKorisnik;
+import backend.app.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import backend.app.model.RegistrovaniKorisnik;
-import backend.app.service.LoginService;
+import java.util.HashMap;
 
 
 @CrossOrigin(origins = { "http://localhost:4200" })

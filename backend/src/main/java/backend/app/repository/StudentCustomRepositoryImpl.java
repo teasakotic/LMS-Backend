@@ -22,7 +22,7 @@ import backend.app.model.StudentNaGodini;
 
 
 @Repository
-public class RadNaStudentuRepositoryImpl implements RadNaStudentuRepository {
+public class StudentCustomRepositoryImpl implements StudentCustomRepository {
 
 	@PersistenceContext
 	EntityManager entityManager;
